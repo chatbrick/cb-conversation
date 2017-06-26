@@ -3,7 +3,6 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request');
-var fbConfig = require('../../bin/config.json');
 var forEach = require('async-foreach').forEach;
 var AWS = require('aws-sdk');
 var s3 = new AWS.S3();

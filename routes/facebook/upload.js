@@ -1,7 +1,4 @@
-var express = require('express');
-var router = express.Router();
-var multer = require('multer');
-var multerS3 = require('multer-s3');
+'use strict';
 var fs = require('fs');
 var AWS = require('aws-sdk');
 AWS.config.region = 'ap-northeast-2';

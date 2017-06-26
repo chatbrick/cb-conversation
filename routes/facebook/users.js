@@ -2,7 +2,6 @@
 
 var express = require('express');
 var router = express.Router();
-var fbConfig = require('./config.json');
 var accesstoken = "EAAEnsPAELUMBADgSLdVm8jxd9krQqtjxrfn0VpY8Upa0KqBLLAq3CRTQjYUa4DZCTKDbu9ZCGMQj3TDWw2vUKQ9AxSZAlLIXwlYzWtoTSbAGawA4hka9eWsqhomosleZBTWeiJ8Si6B8fO667pSYGpROfRLcgVev5TlwnHtFUql1NGc1DXX1zoHFeaJUZC14ZD";
 var path = './config.json';
 var fs = require('fs');
@@ -19,7 +18,6 @@ router.post('/', function(req, res, next) {
 
     if (facebookIds != null) {
 
-        //fbConfig.recipient_ids = facebookIds;
         var facebookData = {
             "recipient_ids": facebookIds,
             "access_token": accesstoken
