@@ -8,10 +8,12 @@ var forEach = require('async-foreach').forEach;
 
 router.post('/', function(req, res, next) {
 
-    console.log('req.body =>' + JSON.stringify(req.body));
-    res.end('respond with a resource');
+    //console.log('req.body =>' + JSON.stringify(req.body));
+    //console.log(fbConfig.recipient_ids);
+    //console.log(JSON.parse(fbConfig.recipient_ids));
+    loop(JSON.parse(fbConfig.recipient_ids), messageData);
 
-    loop(fbConfig.recipient_id, messageData);
+
     //callSendAPI(messageData);
 });
 
@@ -54,8 +56,9 @@ function callSendAPI(facebookId, messageData) {
 }
 
 function loop(group, messageData) {
+    console.log(group);
     forEach(group, function(item, index, arr) {
-        //console.log("each", item, index, arr);
+        console.log("each", item, index, arr);
         callSendAPI(item, messageData);
 
     });
