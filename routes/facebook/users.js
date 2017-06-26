@@ -6,6 +6,7 @@ var fbConfig = require('./config.json');
 var accesstoken = "EAAEnsPAELUMBADgSLdVm8jxd9krQqtjxrfn0VpY8Upa0KqBLLAq3CRTQjYUa4DZCTKDbu9ZCGMQj3TDWw2vUKQ9AxSZAlLIXwlYzWtoTSbAGawA4hka9eWsqhomosleZBTWeiJ8Si6B8fO667pSYGpROfRLcgVev5TlwnHtFUql1NGc1DXX1zoHFeaJUZC14ZD";
 var path = './config.json';
 var fs = require('fs');
+var upload = require('./upload');
 
 router.post('/', function(req, res, next) {
 
@@ -28,7 +29,9 @@ router.post('/', function(req, res, next) {
                 console.log(err);
                 res.status(400).send("fail(writeFile) =>"+ err);
             }
-            res.status(200).send("success" + JSON.stringify(fbConfig));
+
+            upload();
+            res.status(200).send("success" + JSON.stringify(facebookData));
         });
 
     } else {
